@@ -1,0 +1,34 @@
+{
+  "version": 2,
+  "name": "kodlarbot",
+  "builds": [
+    {
+      "src": "kodlar-app/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/kodlar-app/$1"
+    }
+  ],
+  "functions": {
+    "api/ask.js": {
+      "maxDuration": 30
+    },
+    "api/health.js": {
+      "maxDuration": 10
+    }
+  },
+  "env": {
+    "GOOGLE_API_KEY": "@google_api_key"
+  }
+}
