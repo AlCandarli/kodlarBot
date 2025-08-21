@@ -1,7 +1,7 @@
 // Main API endpoint for KodlarBot on Vercel
-import { GoogleGenerativeAI } from '@google/generative-ai';
+const { GoogleGenerativeAI } = require('@google/generative-ai');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
@@ -20,13 +20,22 @@ export default async function handler(req, res) {
   try {
     const { task, prompt, language } = req.body;
 
+    // Check if API key is available
+    if (!process.env.GOOGLE_API_KEY) {
+      console.error('GOOGLE_API_KEY not found in environment variables');
+      return res.status(500).json({
+        error: 'API key not configured',
+        output: 'Sorry, the AI service is not properly configured. Please contact the administrator.'
+      });
+    }
+
     // Initialize Google Gemini AI
     const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
 
     if (!genAI) {
-      return res.status(500).json({ 
-        error: 'Google AI not available', 
-        output: 'Sorry, the AI service is currently unavailable. Please check the API key configuration.' 
+      return res.status(500).json({
+        error: 'Google AI not available',
+        output: 'Sorry, the AI service is currently unavailable. Please check the API key configuration.'
       });
     }
 

@@ -14,7 +14,7 @@ git init
 git add .
 git commit -m "Initial commit - KodlarBot ready for deployment"
 git branch -M main
-git remote add origin https://github.com/yourusername/kodlarbot.git
+git remote add origin https://github.com/AlCandarli/kodlarBot.git
 git push -u origin main
 ```
 

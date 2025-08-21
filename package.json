@@ -2,11 +2,10 @@
   "name": "kodlarbot-fullstack",
   "version": "1.0.0",
   "description": "KodlarBot - AI-powered code fixing and translation tool",
-  "main": "index.js",
   "scripts": {
     "dev": "vercel dev",
-    "build": "cd kodlar-app && npm run build",
-    "start": "vercel --prod"
+    "start": "vercel --prod",
+    "deploy": "vercel --prod"
   },
   "keywords": ["ai", "code", "bot", "vercel", "react", "nodejs"],
   "author": "KodlarBot Team",
