@@ -1,7 +1,7 @@
 // Quick test for deployed API
 const https = require('https');
 
-const VERCEL_URL = 'https://kodlar-5kouovu4x-al-candarlis-projects.vercel.app';
+const VERCEL_URL = 'https://kodlar-33z2n7lr9-al-candarlis-projects.vercel.app';
 
 function testAPI(endpoint, method = 'GET', data = null) {
   return new Promise((resolve, reject) => {
