@@ -7,19 +7,12 @@
       "config": {
         "distDir": "build"
       }
+    },
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
     }
   ],
-  "functions": {
-    "api/ask.js": {
-      "maxDuration": 30
-    },
-    "api/health.js": {
-      "maxDuration": 10
-    },
-    "api/index.js": {
-      "maxDuration": 5
-    }
-  },
   "routes": [
     {
       "src": "/api/(.*)",
