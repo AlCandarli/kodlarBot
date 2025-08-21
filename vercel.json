@@ -1,26 +1,27 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "kodlar-app/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
+  "installCommand": "cd kodlar-app && npm install",
+  "buildCommand": "cd kodlar-app && npm run build",
+  "outputDirectory": "kodlar-app/build",
+  "functions": {
+    "api/ask.js": {
+      "maxDuration": 30
     },
-    {
-      "src": "api/**/*.js",
-      "use": "@vercel/node"
+    "api/health.js": {
+      "maxDuration": 10
+    },
+    "api/index.js": {
+      "maxDuration": 5
     }
-  ],
-  "routes": [
+  },
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
     },
     {
-      "src": "/(.*)",
-      "dest": "/kodlar-app/$1"
+      "source": "/(.*)",
+      "destination": "/$1"
     }
   ]
 }

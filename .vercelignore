@@ -1,5 +1,6 @@
 backend-kodlar/
 node_modules/
+kodlar-app/node_modules/
 .env
 .env.local
 .env.development.local
@@ -10,3 +11,8 @@ yarn-debug.log*
 yarn-error.log*
 .DS_Store
 *.log
+test-api.js
+deploy.sh
+kodlar-app/src/
+kodlar-app/public/
+!kodlar-app/build/
