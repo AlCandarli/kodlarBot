@@ -13,6 +13,3 @@ yarn-error.log*
 *.log
 test-api.js
 deploy.sh
-kodlar-app/src/
-kodlar-app/public/
-!kodlar-app/build/
